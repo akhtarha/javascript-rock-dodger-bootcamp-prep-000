@@ -137,35 +137,7 @@ describe('Rock Dodger', () => {
     })
   })
 
-  describe('endGame()', () => {
-    it('clears gameInterval', () => {
-      const spy = expect.spyOn(window, 'clearInterval')
 
-      endGame()
-
-      expect(spy).toHaveBeenCalled()
-    })
-
-    it('removes all of the rocks', () => {
-      // noop
-      window.requestAnimationFrame = () => {}
-
-      let spies = []
-
-      for (let i = 0; i < 4; i++) {
-        let rock = createRock(i)
-
-        spies.push(expect.spyOn(rock, 'remove'))
-      }
-
-      endGame()
-
-      for (let i = 0; i < 4; i++) {
-        expect(spies[i]).toHaveBeenCalled()
-      }
-    })
-
-  })
 
   describe('moveDodger(e)', () => {
     beforeEach(() => {
